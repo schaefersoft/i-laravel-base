@@ -21,7 +21,7 @@ class FormGenerator extends Component
 
     public function render(): View
     {
-        return view('form-generator', [
+        return view('base::form-generator.'. config('laravel-base.form-generator.view'), [
             'fields' => $this->fields
         ]);
     }

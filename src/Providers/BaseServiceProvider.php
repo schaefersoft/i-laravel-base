@@ -15,8 +15,11 @@ class BaseServiceProvider extends ServiceProvider
     {
         if($this->app->runningInConsole()){
             $this->publishes([
+                __DIR__.'/../../views' => resource_path('views/vendor/base'),
                 __DIR__.'/../../config/laravel-base.php' => config_path('laravel-base.php')
             ]);
         }
+
+        $this->loadViewsFrom(__DIR__ . '/../../views', 'base');
     }
 }
