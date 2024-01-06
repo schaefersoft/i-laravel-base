@@ -1,33 +1,35 @@
 {
-    "name": "schaefersoft/laravel-base",
-    "description": "Schäfersoft Laravel Base Package",
-    "type": "laravel-package",
-    "license": "MIT",
-    "version": "1.0.0",
-    "autoload": {
-        "psr-4": {
-            "Schaefersoft\\Base\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Daniel Elskamp",
-            "email": "de@schaefersoft.ch",
-            "homepage": "https://schaefersoft.ch"
-        }
-    ],
-    "require": {
-        "php" : "^8.0"
-    },
-    "require-dev": {
-        "laravel/framework": "^9.0|^10.0"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Schaefersoft\\Base\\Providers\\BaseServiceProvider",
-                "Schaefersoft\\Base\\Providers\\FormGeneratorServiceProvider"
-            ]
-        }
+  "name": "schaefersoft/laravel-base",
+  "description": "Schäfersoft Laravel Base Package",
+  "type": "laravel-package",
+  "license": "MIT",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "Schaefersoft\\Base\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Daniel Elskamp",
+      "email": "de@schaefersoft.ch",
+      "homepage": "https://schaefersoft.ch"
+    }
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "laravel/framework": "^9.0|^10.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Schaefersoft\\Base\\Providers\\BaseServiceProvider",
+        "Schaefersoft\\Base\\Providers\\FormGeneratorServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
