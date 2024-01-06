@@ -26,7 +26,7 @@
         "laravel": {
             "providers": [
                 "Schaefersoft\\Base\\Providers\\BaseServiceProvider",
-                "Schaefersoft\\Base\\Providers\\FormGeneratorServiceProvider",
+                "Schaefersoft\\Base\\Providers\\FormGeneratorServiceProvider"
             ]
         }
     }
