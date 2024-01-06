@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait SearchableQuery
 {
-    public function scopeSearchable(Builder $query, string $searchText,  array $toSearchArray = []): Builder
+    public function scopeSearchable(Builder $query, ?string $searchText = null,  array $toSearchArray = []): Builder
     {
+        if($searchText === null){
+            return $query;
+        }
+
         foreach($toSearchArray as $search){
             $query->orWhere($search, 'LIKE', '%'.$searchText.'%');
         }
