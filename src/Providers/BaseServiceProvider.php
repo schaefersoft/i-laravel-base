@@ -2,7 +2,9 @@
 
 namespace Schaefersoft\Base\Providers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Schaefersoft\Base\Rules\TurnstileRule;
 
 class BaseServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,10 @@ class BaseServiceProvider extends ServiceProvider
             ]);
         }
 
+        //Views
         $this->loadViewsFrom(__DIR__ . '/../../views', 'base');
+
+        //Validation Rules
+        Validator::extend('turnstile', [TurnstileRule::class, '']);
     }
 }
