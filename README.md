@@ -2,6 +2,12 @@
 
 A simple lightweight helper package, that contains lots of helpers, that are often required in modern web applications.
 
+## Installation
+
+```bash
+composer require schaefersoft/laravel-base
+```
+
 ## Useful
 
 | Type           | Docs                                 |
