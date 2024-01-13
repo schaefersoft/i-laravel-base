@@ -67,7 +67,7 @@ public function handleRequest(Request $request)
 The package provides an easy way to change to validation message for failed checks. To change the message, add
 a `turnstile` property to your `lang\{xx}\validation.php`
 
-#### **`lang\de\validation.php`**
+#### **`lang\en\validation.php`**
 
 ````php
 
