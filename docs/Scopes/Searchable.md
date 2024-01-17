@@ -5,7 +5,7 @@ The laravel base package provides an easy way to get database entries filtered b
 ## Installation
 Ensure you have the Laravel Base package installed, and then follow these steps:
 
-1. Add the SearchableQuery trait to the model, you want to use.
+Add the SearchableQuery trait to the model, you want to use.
 
 `User.php`
 ```php
@@ -27,7 +27,7 @@ class User extends Model
 ```
 
 ## Basic Usage
-To perform a basic search, use the `::searchable()` method on the model. This method takes a search text and an array of fields to search against.
+To perform a basic search, use the `::searchable()` method on the model. This method takes a search text and an array of fields to search against. 
 
 Make sure to always add some kind of execute method to the end of your query.
 
@@ -55,15 +55,18 @@ You can chain additional queries to the searchable trait for more complex filter
 
 use Illuminate\Http\Request;
 
-public function handleRequest(Request $request)
+class UserController extends Controller
 {
-    $users = User::searchable('david', [
-            'firstname',
-            'lastname',
-            'email'
-        ])
-        ->where('is_active', true)
-        ->orderBy('name')
-        ->get();
+    public function handleRequest(Request $request)
+    {
+        $users = User::searchable('david', [
+                'firstname',
+                'lastname',
+                'email'
+            ])
+            ->where('is_active', true)
+            ->orderBy('name')
+            ->get();
+    }
 }
 ```
