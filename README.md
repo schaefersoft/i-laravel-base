@@ -2,15 +2,21 @@
 
 A simple lightweight helper package, that contains lots of helpers, that are often required in modern web applications.
 
+## Trello Board
+[Public Trello board](https://trello.com/b/EeykSYzV/laravel-base)
+
 ## Installation
 
 ```bash
 composer require schaefersoft/laravel-base
 ```
 
-## Trello Board
-[Goto Trello](https://trello.com/b/EeykSYzV/laravel-base)
 
+## Scopes
+
+| Type             | Docs                              |
+|------------------|-----------------------------------|
+| Searchable Trait | [Docs](docs/Scopes/Searchable.md) |
 
 ## Useful
 
