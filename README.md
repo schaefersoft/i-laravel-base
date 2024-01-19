@@ -20,9 +20,10 @@ composer require schaefersoft/laravel-base
 
 ## Useful
 
-| Type           | Docs                                 |
-|----------------|--------------------------------------|
-| Form Generator | [Docs](docs/Useful/FormGenerator.md) |
+| Type             | Docs                                 |
+|------------------|--------------------------------------|
+| Form Generator   | [Docs](docs/Useful/FormGenerator.md) |
+| Blade Components | [Docs](docs/Useful/Components.md)    |
 
 ## Security
 
