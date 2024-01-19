@@ -19,7 +19,7 @@ class BaseServiceProvider extends ServiceProvider
     {
         if($this->app->runningInConsole()){
             $this->publishes([
-                __DIR__.'/../../views' => resource_path('views/vendor/base'),
+                __DIR__.'/../../resources/views' => resource_path('views/vendor/base'),
                 __DIR__.'/../../config/laravel-base.php' => config_path('laravel-base.php')
             ]);
         }
@@ -36,11 +36,11 @@ class BaseServiceProvider extends ServiceProvider
         ]);
 
         //Registering Blade Component
-
+        \Blade::componentNamespace('Schaefersoft\\Base\\View\\', 'base');
 
 
         //Views
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'base');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'base');
 
         //Validation Rules
         Validator::extend('turnstile', [TurnstileRule::class, '']);
