@@ -37,8 +37,7 @@ class BaseServiceProvider extends ServiceProvider
         ]);
 
         //Registering Blade Component
-        Blade::componentNamespace('Schaefersoft\\Base\\View\\Components\\', 'base');
-
+        Blade::componentNamespace('Schaefersoft\\Base\\View\\Components', 'base');
 
         //Views
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'base');
