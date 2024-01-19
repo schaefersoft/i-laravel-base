@@ -2,6 +2,7 @@
 
 namespace Schaefersoft\Base\Providers;
 
+use Blade;
 use Schaefersoft\Base\Services\TypeScriptGeneratorService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -36,7 +37,7 @@ class BaseServiceProvider extends ServiceProvider
         ]);
 
         //Registering Blade Component
-        \Blade::componentNamespace('Schaefersoft\\Base\\View\\', 'base');
+        Blade::componentNamespace('Schaefersoft\\Base\\View\\Components\\', 'base');
 
 
         //Views

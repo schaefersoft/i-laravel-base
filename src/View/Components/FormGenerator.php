@@ -1,6 +1,6 @@
 <?php
 
-namespace Schaefersoft\Base\View;
+namespace Schaefersoft\Base\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
