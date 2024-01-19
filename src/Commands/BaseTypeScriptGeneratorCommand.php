@@ -2,8 +2,7 @@
 
 namespace Schaefersoft\Base\Commands;
 
-use App\Models\SystemUser;
-use App\Services\TypeScriptGeneratorService;
+use Schaefersoft\Base\Services\TypeScriptGeneratorService;
 use Illuminate\Console\Command;
 
 class BaseTypeScriptGeneratorCommand extends Command

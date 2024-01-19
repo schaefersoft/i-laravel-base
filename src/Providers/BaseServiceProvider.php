@@ -2,7 +2,7 @@
 
 namespace Schaefersoft\Base\Providers;
 
-use App\Services\TypeScriptGeneratorService;
+use Schaefersoft\Base\Services\TypeScriptGeneratorService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Schaefersoft\Base\Commands\BaseTypeScriptGeneratorCommand;
@@ -34,6 +34,10 @@ class BaseServiceProvider extends ServiceProvider
         $this->commands([
             BaseTypeScriptGeneratorCommand::class
         ]);
+
+        //Registering Blade Component
+
+
 
         //Views
         $this->loadViewsFrom(__DIR__ . '/../../views', 'base');
