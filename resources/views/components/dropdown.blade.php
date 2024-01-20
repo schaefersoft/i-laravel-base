@@ -8,7 +8,7 @@
         </span>
     </button>
     <!--  for dividers -->
-    <div class="absolute right-0 z-10 mt-2.5 w-32 divide-y divide-gray-100 origin-top-right  rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none opacity-0" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" >
+    <div class="absolute right-0 z-10 mt-2.5 w-32  origin-top-right  rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none opacity-0" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" >
         {{$content}}
     </div>
 </div>
