@@ -1,4 +1,4 @@
-<div class="relative" data-role="dropdown">
+<div class="relative inline-block" data-role="dropdown">
     <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button" aria-expanded="false" aria-haspopup="true" @click="showMenuDropDown = !showMenuDropDown">
         <span class="hidden lg:flex lg:items-center">
         <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">{{$buttonContent}}</span>
