@@ -25,4 +25,46 @@ export function initBase() {
     /*
         DROPDOWNS END
     */
+
+    /*
+        SIDEBAR START
+    */
+    const allSidebarToggles = document.querySelectorAll('[data-role=sidebar-toggle]');
+    allSidebarToggles.forEach(function (sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', function () {
+            const target = sidebarToggleBtn.getAttribute('data-target');
+            if(target){
+                const targetSidebarContainer = document.getElementById(target);
+                const targetSidebarBackground = targetSidebarContainer.querySelectorAll('[data-role=sidebar-background]')[0]
+                const targetSidebarInner = targetSidebarContainer.querySelectorAll('[data-role=sidebar-inner]')[0]
+                const targetSidebarInnerContent = targetSidebarContainer.querySelectorAll('[data-role=sidebar-inner-content]')[0]
+
+                const currentState = targetSidebarContainer.getAttribute('data-is-open') ?? 'no';
+                if(currentState === "yes"){
+                    targetSidebarContainer.classList.add('transition-opacity', 'ease-linear', 'duration-300', 'opacity-0');
+                    targetSidebarContainer.classList.remove('transition-opacity', 'ease-linear', 'duration-300', 'opacity-100');
+                    targetSidebarBackground.classList.add('hidden');
+                    targetSidebarInner.classList.remove('transition', 'ease-in-out', 'duration-300', 'transform', 'translate-x-0')
+                    targetSidebarInner.classList.add('transition', 'ease-in-out', 'duration-300', 'transform', '-translate-x-full')
+                    targetSidebarInnerContent.classList.remove('ease-in-out', 'duration-300', 'opacity-100');
+                    targetSidebarInnerContent.classList.add('ease-in-out', 'duration-300', 'opacity-0');
+                    targetSidebarContainer.setAttribute('data-is-open', 'no');
+                } else {
+                    targetSidebarContainer.classList.remove('transition-opacity', 'ease-linear', 'duration-300', 'opacity-0');
+                    targetSidebarContainer.classList.add('transition-opacity', 'ease-linear', 'duration-300', 'opacity-100');
+                    targetSidebarBackground.classList.remove('hidden');
+                    targetSidebarInner.classList.remove('transition', 'ease-in-out', 'duration-300', 'transform', '-translate-x-full')
+
+                    targetSidebarInner.classList.add('transition', 'ease-in-out', 'duration-300', 'transform', 'translate-x-0')
+                    targetSidebarInnerContent.classList.remove('ease-in-out', 'duration-300', 'opacity-0');
+                    targetSidebarInnerContent.classList.add('ease-in-out', 'duration-300', 'opacity-100');
+                    targetSidebarContainer.setAttribute('data-is-open', 'yes');
+                }
+
+            }
+        })
+    })
+    /*
+        SIDEBAR ENDS
+    */
 }
