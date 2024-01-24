@@ -3,11 +3,13 @@
 namespace Schaefersoft\Base\Providers;
 
 use Blade;
+use Illuminate\Database\Schema\Blueprint;
 use Schaefersoft\Base\Services\TypeScriptGeneratorService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Schaefersoft\Base\Commands\BaseTypeScriptGeneratorCommand;
 use Schaefersoft\Base\Rules\TurnstileRule;
+use Schaefersoft\Base\Traits\BlueprintMixin;
 
 class BaseServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,7 @@ class BaseServiceProvider extends ServiceProvider
         $this->app->singleton(TypeScriptGeneratorService::class, function($app){
             return new TypeScriptGeneratorService();
         });
+        $this->app->bind('Illuminate\Database\Schema\Blueprint', BlueprintMixin::class);
 
 
         //Registering Console Commands
@@ -44,5 +47,7 @@ class BaseServiceProvider extends ServiceProvider
 
         //Validation Rules
         Validator::extend('turnstile', [TurnstileRule::class, '']);
+
+
     }
 }
