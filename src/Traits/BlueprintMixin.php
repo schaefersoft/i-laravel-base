@@ -6,13 +6,17 @@ use Illuminate\Database\Schema\Blueprint;
 
 class BlueprintMixin extends Blueprint
 {
-    public function addCreatedAndUpdatedBy(string $foreignTable = 'system_users')
+    public function addCreatedAndUpdatedBy(): void
     {
-        $this->foreignId('created_by')->nullable();
-        $this->foreignId('updated_by')->nullable();
+        $this->foreignId(config('laravel-base.database.created_by'))->nullable();
+        $this->foreignId(config('laravel-base.database.updated_by'))->nullable();
 
-        $this->foreign('created_by')->references('id')->on($foreignTable);
-        $this->foreign('updated_by')->references('id')->on($foreignTable);
+        $this->foreign(config('laravel-base.database.created_by'))
+            ->references(config('laravel-base.database.created_by_reference'))
+            ->on(config('laravel-base.database.created_by_reference_table'));
+        $this->foreign(config('laravel-base.database.updated_by'))
+            ->references(config('laravel-base.database.created_by_reference'))
+            ->on(config('laravel-base.database.created_by_reference_table'));
 
     }
 }

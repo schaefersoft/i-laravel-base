@@ -13,17 +13,17 @@ trait CreatedUpdatedByTrait
         parent::boot();
 
         static::creating(function ($model) {
-            if (!$model->isDirty('created_by')) {
+            if (!$model->isDirty(config('laravel-base.database.created_by'))) {
                 $model->created_by = auth()->user()->id ?? null;
             }
-            if (!$model->isDirty('updated_by')) {
+            if (!$model->isDirty(config('laravel-base.database.updated_by'))) {
                 $model->updated_by = auth()->user()->id ?? null;
             }
         });
 
         // updating updated_by when model is updated
         static::updating(function ($model) {
-            if (!$model->isDirty('updated_by')) {
+            if (!$model->isDirty(config('laravel-base.database.updated_by'))) {
                 $model->updated_by = auth()->user()->id ?? null;
             }
         });
@@ -32,12 +32,12 @@ trait CreatedUpdatedByTrait
 
     public function created_by() : BelongsTo
     {
-        return $this->belongsTo(SystemUser::class, 'created_by');
+        return $this->belongsTo(config('laravel-base.database.created_by_model'), config('laravel-base.database.created_by'));
     }
 
     public function updated_by() : BelongsTo
     {
-        return $this->belongsTo(SystemUser::class, 'updated_by');
+        return $this->belongsTo(config('laravel-base.database.created_by_model'), config('laravel-base.database.updated_by'));
     }
 
 }
