@@ -4,15 +4,13 @@ namespace Schaefersoft\Base\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Schaefersoft\Base\Classes\MetaData;
 
 class Meta extends Component
 {
     public function __construct(
-        public string $title,
-        public ?string $description = null,
-        public ?string $keywords = null,
-    ) {
-    }
+        public MetaData $meta
+    ) {}
 
     public function render(): View
     {
