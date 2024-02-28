@@ -36,7 +36,7 @@
                             </button>
                         </div>
                         <div
-                            class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
+                            class="flex grow flex-col overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
                             <div class="flex h-16 shrink-0 items-center">
                                 <img class="h-8 w-auto"
                                      src="{{$logo}}"
@@ -65,7 +65,7 @@
             </div>
 
             <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
+                <div class="flex grow flex-col overflow-y-auto bg-gray-900 px-6 pb-4">
                     <div class="flex h-16 shrink-0 items-center">
                         <img class="h-8 w-auto" src="{{$logo}}"
                              alt="Admin">
@@ -91,7 +91,7 @@
             </div>
         @endif
 
-        <div class="@if(!isset($hideSidebar) || !$hideSidebar) lg:pl-72 @endif">
+        <div class="@if(!isset($hideSidebar) || !$hideSidebar) lg:pl-[16rem] @endif">
             @if(!isset($hideTopbar) || !$hideTopbar)
                 <div
                     class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-gray-900 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 text-white">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             @endif
-            <main class="py-10">
+            <main>
                 <div class="px-4 sm:px-6 lg:px-8">
                     <div class="my-2">
                         <x-base::errors />
