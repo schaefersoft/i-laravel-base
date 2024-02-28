@@ -2,6 +2,24 @@
     if(!isset($sidebarNavigation)){
         $sidebarNavigation = [];
     }
+    if(!isset($userNavigation)){
+        $userNavigation = [];
+    }
+    if(!isset($userMenuNameIndicator)){
+        $userMenuNameIndicator = 'name';
+    }
+    if(!isset($userMenuAvatarIndicator)){
+        $userMenuAvatarIndicator = 'avatar_url';
+    }
+    if(!isset($showUserMenuAvatar)){
+        $showUserMenuAvatar = false;
+    }
+    if(!isset($langOpenSidebarKey)){
+        $langOpenSidebarKey = 'base::layouts.sidebar.open';
+    }
+    if(!isset($langCloseSidebarKey)){
+        $langCloseSidebarKey = 'base::layouts.sidebar.close';
+    }
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full dark:bg-gray-900">
@@ -28,7 +46,7 @@
                     <div class="relative mr-16 flex w-full max-w-xs flex-1">
                         <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
                             <button type="button" class="-m-2.5 p-2.5" id="main-sidebar-close-button">
-                                <span class="sr-only">Close sidebar</span>
+                                <span class="sr-only">{{__($langCloseSidebarKey)}}</span>
                                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                      stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -96,7 +114,7 @@
                 <div
                     class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-gray-900 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 text-white">
                     <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" id="main-sidebar-toggle">
-                        <span class="sr-only">Open sidebar</span>
+                        <span class="sr-only">{{__($langOpenSidebarKey)}}</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                              aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -116,11 +134,13 @@
                                         aria-expanded="false" aria-haspopup="true" data-dropdown
                                         data-dropdown-target="user-dropdown">
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full bg-gray-50"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                         alt="">
+                                    @if($showUserMenuAvatar)
+                                        <img class="h-8 w-8 rounded-full bg-gray-50"
+                                             src="{{$userMenuAvatarIndicator}}"
+                                             alt="">
+                                    @endif
                                     <span class="hidden lg:flex lg:items-center">
-                                        <span class="ml-4 text-sm font-semibold leading-6 text-white" aria-hidden="true">Tom Cook</span>
+                                        <span class="ml-4 text-sm font-semibold leading-6 text-white" aria-hidden="true">{{auth()->user()->$userMenuNameIndicator}}</span>
                                         <svg class="ml-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
                                                 d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -134,10 +154,10 @@
                                     tabindex="-1"
                                     id="user-dropdown">
                                     <!-- Active: "bg-gray-50", Not Active: "" -->
-                                    <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-900 hover:text-white" role="menuitem"
-                                       tabindex="-1" id="user-menu-item-0">Your profile</a>
-                                    <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-900 hover:text-white" role="menuitem"
-                                       tabindex="-1" id="user-menu-item-1">Sign out</a>
+                                    @foreach($userNavigation as $navigationItem)
+                                        <a href="{{route($navigationItem['route'])}}" class="block px-3 py-1 text-sm leading-6 text-gray-800 hover:bg-gray-800 hover:text-white" role="menuitem"
+                                           tabindex="-1" id="user-menu-item-0">{{$navigationItem['name']}}</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

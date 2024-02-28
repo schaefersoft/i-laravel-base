@@ -36,7 +36,7 @@ return [
         'created_by_model' => env('BASE_DATABASE_CREATED_BY_MODEL', \App\Models\SystemUser::class),
         'updated_by_model' => env('BASE_DATABASE_UPDATED_BY_MODEL', \App\Models\SystemUser::class),
     ],
-
+    //Layout Config
     //Default SEO config
     'seo' =>  [
         'title' => '', //My amazing website

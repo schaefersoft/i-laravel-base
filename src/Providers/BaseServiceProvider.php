@@ -48,6 +48,7 @@ class BaseServiceProvider extends ServiceProvider
         //Validation Rules
         Validator::extend('turnstile', [TurnstileRule::class, '']);
 
-
+        //Language Files
+        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'base');
     }
 }
