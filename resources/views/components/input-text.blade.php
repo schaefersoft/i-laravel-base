@@ -1,10 +1,10 @@
 <div>
     <div class="relative mb-2">
-        <label class="absolute -top-2 left-2 inline-block bg-white dark:bg-gray-900 px-1 text-xs font-medium text-gray-900 dark:text-white" for="{{$name}}">
+        <label class="absolute -top-2 left-2 inline-block bg-white dark:bg-gray-900 px-1 text-xs font-medium text-gray-900 dark:text-gray-300 rounded" for="{{$name}}">
             {{ $label }}
         </label>
         <input
-            class="ring-gray-300  dark:bg-gray-900 text-black dark:text-white block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-theme-600 sm:text-sm sm:leading-6'"
+            class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block w-full py-1.5  sm:text-sm sm:leading-6'"
             name="{{$name}}"
             id="{{$name}}"
             type="{{$type}}"

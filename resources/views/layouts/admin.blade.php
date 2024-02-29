@@ -22,7 +22,7 @@
     }
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full dark:bg-gray-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-gray-100 dark:bg-gray-900">
 <head>
     @stack('beforeHeadStart')
     <meta charset="utf-8">
@@ -40,7 +40,7 @@
     @if(!isset($showMinimal) || !$showMinimal)
         @if(!isset($hideSidebar) || !$hideSidebar)
             <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
-                <div class="fixed inset-0 bg-gray-900/80 opacity-100 transition-opacity ease-linear duration-300 hidden"
+                <div class="fixed inset-0 bg-white dark:bg-gray-800/80 opacity-100 transition-opacity ease-linear duration-300 hidden"
                      id="main-sidebar-backdrop"></div>
                 <div class="fixed inset-0 flex hidden" id="main-sidebar">
                     <div class="relative mr-16 flex w-full max-w-xs flex-1">
@@ -54,7 +54,7 @@
                             </button>
                         </div>
                         <div
-                            class="flex grow flex-col overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
+                            class="flex grow flex-col overflow-y-auto bg-white dark:bg-gray-800 px-6 pb-4 ring-1 ring-white/10">
                             <div class="flex h-16 shrink-0 items-center">
                                 <img class="h-8 w-auto"
                                      src="{{$logo}}"
@@ -67,7 +67,7 @@
                                             @foreach($sidebarNavigation as $navigation)
                                                 <li>
                                                     <a href="{{route($navigation['route'])}}"
-                                                       class="@if(Route::is($navigation['route'])) bg-gray-800 text-white  @endif group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                                       class="@if(Route::is($navigation['route'])) bg-white dark:bg-gray-800 text-white dark:text-dark  @endif group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                                         <x-icon name="fas-{{$navigation['icon']}}" class="h-6 w-6 shrink-0" />
                                                         {{$navigation['name']}}
                                                     </a>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-                <div class="flex grow flex-col overflow-y-auto bg-gray-900 px-6 pb-4">
+                <div class="flex grow flex-col overflow-y-auto bg-white dark:bg-gray-800 px-6 pb-4">
                     <div class="flex h-16 shrink-0 items-center">
                         <img class="h-8 w-auto" src="{{$logo}}"
                              alt="Admin">
@@ -95,7 +95,7 @@
                                     @foreach($sidebarNavigation as $navigation)
                                         <li>
                                             <a href="{{route($navigation['route'])}}"
-                                               class="@if(Route::is($navigation['route'])) bg-gray-800 text-white  @endif text-gray-400 hover:text-white hover:bg-gray-800 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+                                               class="@if(Route::is($navigation['route'])) bg-white dark:bg-gray-800   @endif text-gray-400 hover:text-white hover:bg-space-900 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
                                                 <x-icon name="fas-{{$navigation['icon']}}" class="h-6 w-6 shrink-0" />
                                                 {{$navigation['name']}}
                                             </a>
@@ -112,7 +112,7 @@
         <div class="@if(!isset($hideSidebar) || !$hideSidebar) lg:pl-[16rem] @endif">
             @if(!isset($hideTopbar) || !$hideTopbar)
                 <div
-                    class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-gray-900 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 text-white">
+                    class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 bg-white dark:bg-gray-800 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8 text-black">
                     <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" id="main-sidebar-toggle">
                         <span class="sr-only">{{__($langOpenSidebarKey)}}</span>
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -123,12 +123,12 @@
                     </button>
 
                     <!-- Separator -->
-                    <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true"></div>
+                    <div class="h-6 w-px bg-white dark:bg-gray-800/10 lg:hidden" aria-hidden="true"></div>
 
                     <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
                         <div class="relative flex flex-1"></div>
                         <div class="flex items-center gap-x-4 lg:gap-x-6">
-                            <div class="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10" aria-hidden="true"></div>
+                            <div class="hidden lg:block lg:h-6 lg:w-px lg:bg-space-900/10" aria-hidden="true"></div>
                             <div class="relative">
                                 <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button"
                                         aria-expanded="false" aria-haspopup="true" data-dropdown
@@ -155,7 +155,7 @@
                                     id="user-dropdown">
                                     <!-- Active: "bg-gray-50", Not Active: "" -->
                                     @foreach($userNavigation as $navigationItem)
-                                        <a href="{{route($navigationItem['route'])}}" class="block px-3 py-1 text-sm leading-6 text-gray-800 hover:bg-gray-800 hover:text-white" role="menuitem"
+                                        <a href="{{route($navigationItem['route'])}}" class="block px-3 py-1 text-sm leading-6 text-gray-800 hover:bg-space-900 hover:text-white" role="menuitem"
                                            tabindex="-1" id="user-menu-item-0">{{$navigationItem['name']}}</a>
                                     @endforeach
                                 </div>
@@ -165,7 +165,7 @@
                 </div>
             @endif
             <main>
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 sm:px-6 lg:px-12">
                     <div class="my-2">
                         <x-base::errors />
                     </div>

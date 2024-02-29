@@ -30,12 +30,12 @@ trait CreatedUpdatedByTrait
     }
 
 
-    public function created_by() : BelongsTo
+    public function creator() : BelongsTo
     {
         return $this->belongsTo(config('laravel-base.database.created_by_model'), config('laravel-base.database.created_by'));
     }
 
-    public function updated_by() : BelongsTo
+    public function updater() : BelongsTo
     {
         return $this->belongsTo(config('laravel-base.database.created_by_model'), config('laravel-base.database.updated_by'));
     }

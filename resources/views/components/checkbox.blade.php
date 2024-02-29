@@ -2,12 +2,15 @@
     <div class="flex h-6 items-center">
         <input type="checkbox"
                class="h-4 w-4 rounded border-gray-300 text-theme-600 focus:ring-0 focus:ring-offset-0 hover:cursor-pointer"
-               id="{{$name}}"
+               id="{{$id}}"
                name="{{$name}}"
-               @if($disabled) disabled @endif/>
+               @if($disabled) disabled @endif
+                @if($checked) checked="checked" @endif
+            value="{{$value}}"
+        />
     </div>
     <div class="ml-3 text-sm leading-6">
-        <label for="{{$name}}" class="font-medium text-black dark:text-white hover:cursor-pointer">
+        <label for="{{$id}}" class="font-medium text-black dark:text-white hover:cursor-pointer">
             {{$slot}}
         </label>
     </div>
