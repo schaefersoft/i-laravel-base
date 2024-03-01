@@ -15,7 +15,7 @@
             <h3>Aktuelle Bilder</h3>
             <div class="row">
                 @if($isSingle)
-                    <img src="{{ $oldImages[0] }}" alt="cropper-preview" class="img-fluid cropper-image-single"/>
+                    <img src="{{ $oldImages[0] ?? ''}}" alt="cropper-preview" class="img-fluid cropper-image-single @if(!isset($oldImages[0])) hidden @endif"/>
                 @else
                     @foreach($oldImages as $oldImage)
                         <div class="col-md-2">
