@@ -17,6 +17,7 @@ class InputText extends Component
         public bool $autofocus = false,
         public string $autocomplete = '',
         public bool $disabled = false,
+        public ?string $accept = null,
     ) {
     }
 
