@@ -21,7 +21,7 @@ return [
             'version' => 'v0',
             'site_key' => env('BASE_SECURITY_TURNSTILE_SITE_KEY'),
             'secret_key' => env('BASE_SECURITY_TURNSTILE_SECRET_KEY'),
-            'error_message_translation_key' => 'validation.turnstile'
+            'error_message_translation_key' => 'base::validation.turnstile'
         ]
     ],
     //Database Config

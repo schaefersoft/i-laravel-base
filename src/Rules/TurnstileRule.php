@@ -5,6 +5,8 @@ namespace Schaefersoft\Base\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Http;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Schaefersoft\Base\Exceptions\ConfigNotFoundException;
 use Schaefersoft\Base\Exceptions\TurnstileRequestException;
 
@@ -12,6 +14,11 @@ class TurnstileRule implements ValidationRule
 {
     protected ?string $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws ConfigNotFoundException
+     * @throws NotFoundExceptionInterface
+     */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         $turnstileResponse = is_null($value)
@@ -27,7 +34,7 @@ class TurnstileRule implements ValidationRule
             ->connectTimeout(10)
             ->throw(
                 fn () => new TurnstileRequestException(
-                    'An unkown error occured, please refresh the page and try again.'
+                    'An unknown error occurred, please refresh the page and try again.'
                 )
             )
             ->post($this->url, [
@@ -40,10 +47,9 @@ class TurnstileRule implements ValidationRule
         } else {
             $check = [
                 'success' => false,
-                'message' => 'Unknow error occured, please try again',
+                'message' => 'Unknown error occurred, please try again',
             ];
         }
-
         if(!$check['success']){
             $fail(__(config('laravel-base.security.turnstile.error_message_translation_key')));
         }

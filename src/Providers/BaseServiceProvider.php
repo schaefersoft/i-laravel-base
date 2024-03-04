@@ -42,6 +42,10 @@ class BaseServiceProvider extends ServiceProvider
         //Registering Blade Component
         Blade::componentNamespace('Schaefersoft\\Base\\View\\Components', 'base');
 
+        Blade::directive('turnstileScripts', function () {
+            return '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>';
+        });
+
         //Views
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'base');
 
